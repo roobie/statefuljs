@@ -4,6 +4,7 @@ import {greatestIndex, integerRing} from './util.js'
 /**
  @pure
  @recursive
+ @immutable
 
  @desc the unidirectional ring FSM is handy when you have a finite state space
  and can only change in one direction. When the state gets to the end, it will
@@ -14,6 +15,13 @@ import {greatestIndex, integerRing} from './util.js'
  ----------^->^->^|
            ^      v
            +------+
+
+ Computing the next state, will return a new instance of a state machine
+
+ This state machine is useful when tracking the state of e.g. a column header's
+ ordering state, since oftentimes it can have three states: [asc, desc, none]
+ and the transitions are unidirectional, because it transforms thusly:
+ none -> asc -> desc -> none -> ...
  */
 export default function unidirectionalRingFSM (def, currentIndex = 0) {
   assert(def.states, `argument[0]{states}
