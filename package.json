@@ -12,6 +12,7 @@
     "browserify": "^14.4.0",
     "faucet": "^0.0.1",
     "nodemon": "^1.12.1",
+    "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
   "scripts": {
@@ -19,6 +20,7 @@
     "prebuild:release": "npm test",
     "build:release": "browserify -o index.js -t babelify src/index.js",
     "test:watch": "nodemon -x \"npm test\"",
+    "pretest": "standard --fix src/**/*.js",
     "test": "tape -r babel-register src/**/*.spec.js | faucet"
   },
   "repository": {
