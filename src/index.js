@@ -1,5 +1,5 @@
-import linearStateMachine from './linear_fsm.js'
+import unidirectionalRingFSM from './unidirectional_ring_fsm.js'
 
 export {
-  linearStateMachine
+  unidirectionalRingFSM
 }

@@ -1,10 +1,10 @@
 
 import {test} from 'tape'
-import linearStateMachine from './linear_fsm.js'
+import unidirectionalRingFSM from './unidirectional_ring_fsm.js'
 
 test('basic', t => {
   const states = ['1st', '2nd', '3rd']
-  const fsm1 = linearStateMachine({
+  const fsm1 = unidirectionalRingFSM({
     states
   })
 
@@ -23,9 +23,9 @@ test('basic', t => {
 })
 
 test('invalid config', t => {
-  t.throws(() => linearStateMachine())
-  t.throws(() => linearStateMachine([]))
-  t.throws(() => linearStateMachine([1], -1))
-  t.throws(() => linearStateMachine([1], 2))
+  t.throws(() => unidirectionalRingFSM())
+  t.throws(() => unidirectionalRingFSM([]))
+  t.throws(() => unidirectionalRingFSM([1], -1))
+  t.throws(() => unidirectionalRingFSM([1], 2))
   t.end()
 })
