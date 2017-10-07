@@ -1,0 +1,34 @@
+{
+  "name": "statefuljs",
+  "version": "1.0.0",
+  "description": "state machines for the UI",
+  "main": "index.js",
+  "module": "src/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "faucet": "^0.0.1",
+    "nodemon": "^1.12.1",
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "build:debug": "browserify -d -o index.debug.js -t babelify src/index.js",
+    "prebuild:release": "npm test",
+    "build:release": "browserify -o index.js -t babelify src/index.js",
+    "test:watch": "nodemon -x \"npm test\"",
+    "test": "tape -r babel-register src/**/*.spec.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roobie/statefuljs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roobie/statefuljs/issues"
+  },
+  "homepage": "https://github.com/roobie/statefuljs#readme"
+}
