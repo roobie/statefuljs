@@ -22,8 +22,10 @@ import {greatestIndex, integerRing} from './util.js'
  ordering state, since oftentimes it can have three states: [asc, desc, none]
  and the transitions are unidirectional, because it transforms thusly:
  none -> asc -> desc -> none -> ...
+
+ TODO: add support for validation
  */
-export default function unidirectionalRingFSM (def, currentIndex = 0) {
+export default function cyclingFSM (def, currentIndex = 0) {
   assert(def.states, `argument[0]{states}
 must be defined as an array of at least one element`)
   assert(currentIndex >= 0, `argument[1]currentIndex
@@ -37,6 +39,6 @@ must be less than the length of the array of defined states`)
 
   return {
     current: () => def.states[currentIndex],
-    step: () => unidirectionalRingFSM(def, nextIndex)
+    step: () => cyclingFSM(def, nextIndex)
   }
 }

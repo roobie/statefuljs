@@ -1,10 +1,10 @@
 
 import {test} from 'tape'
-import unidirectionalRingFSM from './unidirectional_ring_fsm.js'
+import cyclingFSM from './cycling_fsm.js'
 
-test('basic', t => {
+test('cyclingFSM::basic', t => {
   const states = ['1st', '2nd', '3rd']
-  const fsm1 = unidirectionalRingFSM({
+  const fsm1 = cyclingFSM({
     states
   })
 
@@ -22,10 +22,10 @@ test('basic', t => {
   t.end()
 })
 
-test('invalid config', t => {
-  t.throws(() => unidirectionalRingFSM())
-  t.throws(() => unidirectionalRingFSM([]))
-  t.throws(() => unidirectionalRingFSM([1], -1))
-  t.throws(() => unidirectionalRingFSM([1], 2))
+test('cyclingFSM::invalid config', t => {
+  t.throws(() => cyclingFSM())
+  t.throws(() => cyclingFSM([]))
+  t.throws(() => cyclingFSM([1], -1))
+  t.throws(() => cyclingFSM([1], 2))
   t.end()
 })

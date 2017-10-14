@@ -1,5 +1,5 @@
-import unidirectionalRingFSM from './unidirectional_ring_fsm.js'
+import cyclingFSM from './unidirectional_ring_fsm.js'
 
 export {
-  unidirectionalRingFSM
+  cyclingFSM
 }
